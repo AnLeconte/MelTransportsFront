@@ -1,9 +1,38 @@
+
+
+import axios from "axios";
 import SearchItineraireForm from "./searchItineraireForm/SearchItineraireForm";
 import IncidentsAlert from "./incidentsAlert/IncidentsAlert";
 import SearchDiv from "./searchDiv/SearchDiv";
 import Alert from "./alertIncident/alertIncident";
 
+
+import {useEffect, useState} from "react";
+
 export default function Home() {
+    const [data, setData] = useState(null);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
+    const [isFetching, setIsFetching] = useState(false);
+
+    useEffect(() => {
+        fetchData();
+    }, []);
+
+    useEffect(() => {
+        if(data != null)
+            console.log(data)
+    }, [isFetching]);
+    const fetchData = async () => {
+        const responseApi = await axios.get(
+            "http://localhost:5000/station"
+        ).then(() => {setData(responseApi.data), setIsFetching(true)});
+        console.log(responseApi);
+
+        //setData(response.data);
+
+    };
+
   return (
     <div className="flex flex-col min-h-screen">
       <div className="flex-grow relative items-center">
@@ -27,5 +56,6 @@ export default function Home() {
       </div>
     </div>
   );
+
 }
 
