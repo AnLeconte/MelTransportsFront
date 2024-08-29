@@ -1,12 +1,11 @@
 
+'use client'
 
 import axios from "axios";
 import SearchItineraireForm from "./searchItineraireForm/SearchItineraireForm";
 import IncidentsAlert from "./incidentsAlert/IncidentsAlert";
 import SearchDiv from "./searchDiv/SearchDiv";
 import Alert from "./alertIncident/alertIncident";
-
-
 import {useEffect, useState} from "react";
 
 export default function Home() {
