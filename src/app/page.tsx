@@ -1,53 +1,24 @@
-'use client'
+import Header from "./header/Header";
+import Footer from "./footer/Footer";
+import SearchItineraireForm from "./searchItineraireForm/SearchItineraireForm";
 
-import { useState } from 'react';
-import { signIn } from 'next-auth/react';
-
-export default function Login() {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
-  const [success, setSuccess] = useState(false);
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    const result = await signIn('credentials', {
-      redirect: false,
-      username,
-      password,
-    });
-
-    if (result.error) {
-      setError(result.error);
-    } else {
-      setSuccess(true);
-    }
-  };
-
+export default function Home() {
   return (
-      <div>
-        <h1>Login</h1>
-        <form onSubmit={handleSubmit}>
-          <div>
-            <label>Username</label>
-            <input
-                type="text"
-                value={username}
-                onChange={(e) => setUsername(e.target.value)}
-            />
-          </div>
-          <div>
-            <label>Password</label>
-            <input
-                type="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-            />
-          </div>
-          <button type="submit">Login</button>
-        </form>
-        {error && <p style={{ color: 'red' }}>{error}</p>}
-        {success && <p style={{ color: 'green' }}>Connexion réussie!</p>}
+    <div className="flex flex-col min-h-screen">
+      <Header />
+      <div className="flex-grow relative items-center">
+        <img
+          src="https://s3-alpha-sig.figma.com/img/45e1/635a/f6ef3ec08c19da482c85c94f437e960a?Expires=1725840000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=amfVXvxli8PWMseYuFcYMCvWi77djsLkta5pbT3UA6ju9gTOgOONRZjNp2dzXqCxYpV2v-h~-QWAl5BNuXGhGcDqCmXV17kILMdaRpiuDRWdHXpSXYdXOeaqjXn3crkhXy6jKQ3ywCDiBOxKtwva2ZAOijtLhNhAmu-AQiMQY0-W3BjAjd6exw3iqg9lsSKjxiXuaITJ7epCcVwE58P8v311mEo4satZN4jFZwaEkWbPBc2NTubX4hmS5Jh7i8R8tASqsuZ-pglAoHF7CEATbHY2IvjiZ5~03lgxwAKvBdPkulGZ1-VvJi00kZlnCwQsd-Y3mJqA88zCHM4TQi8GMw__"
+          alt="Background"
+          className="absolute inset-0 w-full h-full object-cover object-center opacity-50"
+          style={{ objectPosition: "center 20%" }}
+        />
+        <div className="relative z-10 p-4 flex justify-end items-center">
+          <SearchItineraireForm />
+        </div>
       </div>
+      <Footer />
+    </div>
   );
 }
+
