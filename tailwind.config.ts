@@ -19,6 +19,9 @@ const config: Config = {
         blueOcean: '#265D78',
         bouton1: '#89AFC2',
         bouton2: '#6898B1',
+        incident: '#782626',
+        searchDiv: '#BCD1DC',
+        alert: '#EEDDDD'
 
       },
     },

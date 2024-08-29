@@ -6,7 +6,7 @@ import NotificationIcon from "@/asset/NotificationIcon";
 
 const Header = () => {
   return (
-    <div className="w-full h-[75px] bg-whiteIsh flex items-center justify-between px-4 shadow-md">
+    <div className="w-full h-[75px] bg-whiteIsh flex items-center justify-between px-4">
       <div className="flex items-center">
         <LogoHeader />
         <nav className="flex gap-x-8 ml-[50px]">
