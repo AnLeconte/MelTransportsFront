@@ -2,7 +2,6 @@
 
 import axios from "axios";
 import Header from "./header/Header";
-import Footer from "./footer/Footer";
 import SearchItineraireForm from "./searchItineraireForm/SearchItineraireForm";
 import {useEffect, useState} from "react";
 
