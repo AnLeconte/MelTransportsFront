@@ -27,7 +27,7 @@ const Header = () => {
 
       <div className="flex gap-2 items-center">
         <UserIcon />
-        <button className="text-blackIsh font-medium mr-8">Connexion</button>
+        <Link href="/loginpage" className="text-blackIsh font-medium mr-8">Connexion</Link>
         <NotificationIcon />
       </div>
     </div>
