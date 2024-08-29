@@ -1,7 +1,6 @@
 'use client'
 
 import axios from "axios";
-import Header from "./header/Header";
 import SearchItineraireForm from "./searchItineraireForm/SearchItineraireForm";
 import {useEffect, useState} from "react";
 
