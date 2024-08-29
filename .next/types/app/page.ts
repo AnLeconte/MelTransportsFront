@@ -1,4 +1,4 @@
-// File: C:\Users\Administrateur\Desktop\Dev\smartCity\MelTransportsFront\src\app\page.tsx
+// File: C:\Users\antoi\Desktop\Antoine\Projects\mel-transports-front\MelTransportsFront\src\app\page.tsx
 import * as entry from '../../../src/app/page.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 
