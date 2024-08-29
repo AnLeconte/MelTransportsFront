@@ -4,7 +4,7 @@ import React from "react";
 
 const SearchItineraireForm = () => {
   return (
-    <div className="bg-whiteIsh h-[50vh] w-[37vw] mr-7 mt-24 pt-7 space-y-3 flex flex-col items-center">
+    <div className="bg-whiteIsh h-[60vh] w-[37vw] mr-7 mt-24 pt-7 space-y-3 flex flex-col items-center">
       <h3 className="font-bold uppercase text-xl/[2rem]">
         Rechercher un itinéraire
       </h3>

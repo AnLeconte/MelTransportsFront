@@ -1,4 +1,5 @@
 import SearchItineraireForm from "./searchItineraireForm/SearchItineraireForm";
+import IncidentsAlert from "./incidentsAlert/IncidentsAlert";
 
 export default function Home() {
   return (
@@ -13,6 +14,8 @@ export default function Home() {
         <div className="relative z-10 p-4 flex justify-end items-center">
           <SearchItineraireForm />
         </div>
+        <div className="relative z-10"><IncidentsAlert/></div>
+        
       </div>
     </div>
   );
