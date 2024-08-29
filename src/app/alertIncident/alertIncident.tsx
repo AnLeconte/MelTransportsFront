@@ -8,8 +8,6 @@ const Alert = () => {
       <WarningBig /><p className="text-[17px] text-incident ml-3 mb-1.5 flex content-end">Travaux sur la ligne [ligne] : l'arrêt [station] n'est pas desservi</p>
     </div>
 
-
-
   );
 };
 
