@@ -93,8 +93,8 @@ const SearchDeparts = () => {
     return (
         <Box sx={{ flexGrow: 1 }}>
             <AppBar position="static">
-                <Toolbar>
-                    <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+                <Toolbar className= "bg-blueOcean">
+                    <Typography className= "bg-blueOcean" variant="h6" component="div" sx={{ flexGrow: 1 }}>
                         Recherche de Départs
                     </Typography>
                 </Toolbar>
