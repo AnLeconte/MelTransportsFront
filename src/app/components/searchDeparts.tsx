@@ -1,62 +1,120 @@
-import React, {useEffect, useState} from 'react';
-import axios from "axios";
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
+import {
+    Table,
+    TableBody,
+    TableCell,
+    TableContainer,
+    TableHead,
+    TableRow,
+    Paper,
+    CircularProgress,
+    Typography,
+    Box,
+    AppBar,
+    Toolbar,
+    TextField,
+} from '@mui/material';
 
 const SearchDeparts = () => {
     const [station, setStations] = useState(null);
     const [ligne, setLignes] = useState(null);
-    const [searchStation, setSearchStation] = useState("");
+    const [searchStation, setSearchStation] = useState('');
+    const [searchQuery, setSearchQuery] = useState('');
     const [loading, setLoading] = useState(true);
 
-    function renderDataLignes () {
+    function renderDataLignes() {
         if (loading) {
-            return <p>Loading</p>
+            return <CircularProgress />;
         }
         const lignes = ligne
-            .filter((ligne) => ligne.stations.includes(searchStation) )
+            .filter((ligne) => ligne.stations.includes(searchStation))
             .map((ligne) => (
-                <ul key={ligne._id}>
-                    <li>{ligne.nom}</li>
-                    <li>{ligne.premier_depart}</li>
-                    <li>{ligne.dernier_depart}</li>
-                </ul>
-            ))
-        return lignes
+                <TableRow key={ligne._id}>
+                    <TableCell>{ligne.nom}</TableCell>
+                    <TableCell>{ligne.premier_depart}</TableCell>
+                    <TableCell>{ligne.dernier_depart}</TableCell>
+                </TableRow>
+            ));
+        return (
+            <TableContainer component={Paper} sx={{ marginTop: 2 }}>
+                <Table>
+                    <TableHead>
+                        <TableRow>
+                            <TableCell>Nom</TableCell>
+                            <TableCell>Premier Départ</TableCell>
+                            <TableCell>Dernier Départ</TableCell>
+                        </TableRow>
+                    </TableHead>
+                    <TableBody>{lignes}</TableBody>
+                </Table>
+            </TableContainer>
+        );
     }
 
-    function renderDataStations () {
+    function renderDataStations() {
         if (loading) {
-            return <p>Loading</p>
+            return <CircularProgress />;
         }
-        const stations = station
-            .map((station) => (
-                <ul key={station._id}>
-                    <li onClick={() => setSearchStation(station._id)}>{station.nom}</li>
-                </ul>
-            ))
-        return stations
+        const filteredStations = station.filter((station) =>
+            station.nom.toLowerCase().includes(searchQuery.toLowerCase())
+        );
+        const stations = filteredStations.map((station) => (
+            <TableRow key={station._id} onClick={() => setSearchStation(station._id)} sx={{ cursor: 'pointer' }}>
+                <TableCell>{station.nom}</TableCell>
+            </TableRow>
+        ));
+        return (
+            <TableContainer component={Paper} sx={{ marginTop: 2, maxHeight: 300 }}>
+                <Table stickyHeader>
+                    <TableHead>
+                        <TableRow>
+                            <TableCell>Stations</TableCell>
+                        </TableRow>
+                    </TableHead>
+                    <TableBody>{stations}</TableBody>
+                </Table>
+            </TableContainer>
+        );
     }
 
     useEffect(() => {
         axios
-            .get("http://localhost:5000/station")
-            .then(data => setStations(data.data.stationData))
-            .catch(error => console.log(error));
+            .get('http://localhost:5000/station')
+            .then((data) => setStations(data.data.stationData))
+            .catch((error) => console.log(error));
         axios
-            .get("http://localhost:5000/ligne")
-            .then(data => setLignes(data.data.ligneData))
+            .get('http://localhost:5000/ligne')
+            .then((data) => setLignes(data.data.ligneData))
             .then(() => setLoading(false))
-            .catch(error => console.log(error));
+            .catch((error) => console.log(error));
     }, []);
 
     return (
-        <div style={{border : "solid 1px black"}}>
-            {renderDataStations()}
-            <div>
-                <p>Lignes passant par cette station : </p>
-                    {renderDataLignes()}
-                <p>Hello !</p>
-            </div>
-        </div>
+        <Box sx={{ flexGrow: 1 }}>
+            <AppBar position="static">
+                <Toolbar>
+                    <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+                        Recherche de Départs
+                    </Typography>
+                </Toolbar>
+            </AppBar>
+            <Box sx={{ padding: 2 }}>
+                <TextField
+                    label="Rechercher une station"
+                    variant="outlined"
+                    fullWidth
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                    sx={{ marginBottom: 2 }}
+                />
+                {renderDataStations()}
+                <Typography variant="h4" component="h2" gutterBottom sx={{ marginTop: 4 }}>
+                    Lignes passant par cette station :
+                </Typography>
+                {renderDataLignes()}
+            </Box>
+        </Box>
     );
 };
 
