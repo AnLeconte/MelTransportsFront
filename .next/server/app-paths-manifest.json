@@ -1,3 +1,4 @@
 {
-  "/itineraire/page": "app/itineraire/page.js"
+  "/itineraire/page": "app/itineraire/page.js",
+  "/favicon.ico/route": "app/favicon.ico/route.js"
 }

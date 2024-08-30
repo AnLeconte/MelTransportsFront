@@ -8,7 +8,9 @@ const Header = () => {
   return (
     <div className="w-full h-[75px] bg-whiteIsh flex items-center justify-between px-4">
       <div className="flex items-center">
-        <LogoHeader />
+        <Link href="/">
+          <LogoHeader />
+        </Link>
         <nav className="flex gap-x-8 ml-[50px]">
           <Link href="/itineraire" className="text-blackIsh font-medium">
             Trouver un itinéraire
