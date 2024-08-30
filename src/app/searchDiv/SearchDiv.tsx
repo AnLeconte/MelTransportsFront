@@ -27,7 +27,7 @@ const SearchDiv = () => {
         </div>
       </div>
 
-      <div className="bg-searchDiv  w-[35vw] h-[20.5vh] ml-7 mr-56 mt-14 pt-7 space-y-4 flex flex-col items-center">
+      <div className="bg-searchDiv  w-[35vw] h-[20.5vh] ml-7 mt-14 pt-7 space-y-4 flex flex-col items-center">
         <h3 className="font-medium text-blackIsh uppercase text-xl/[2rem]">
           Rechercher une ligne
         </h3>
