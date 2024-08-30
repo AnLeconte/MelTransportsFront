@@ -1,23 +1,37 @@
 import Warning from "@/asset/Warning";
 import SearchDiv from "../searchDiv/SearchDiv";
-
+import { useIncidentData } from "../hook/useIncidentData";
+import Link from "next/link";
 
 const IncidentsAlert = () => {
+  const { dataIncident } = useIncidentData();
   return (
-
     <div className="w-full h-[64vh] bg-whiteIsh px-7 mt-40">
-      <h3 className="font-medium text-2xl/[5rem] text-blueOcean">Perturbation en cours sur le réseau</h3>
+      <h3 className="font-medium text-2xl/[5rem] text-blueOcean">
+        Perturbation en cours sur le réseau
+      </h3>
       {/* Données incidents */}
-      <div className="flex inline-flex font-medium text-[17px] text-incident ml-7">
-        <Warning /> <p className="ml-2">Travaux sur la ligne [ligne] : l'arrêt [station] n'est pas desservi</p>
-      </div>
-      <div className="text-blackIsh">
-        <p className="ml-7">En raison de travaux de maintenance, votre ligne est déviée :</p>
-        <p className="ml-10">► Dans les deux directions, les arrêts Victoire, Lambersart Hôtel de Ville et La Carnoy ne sont pas desservis.</p>
-      </div>
-      <SearchDiv/>
+      {dataIncident.map((incident) => (
+        <>
+          <div className="flex inline-flex font-medium text-[17px] text-incident ml-7">
+            <Warning />
+            <p className="ml-2">{incident.intitule}</p>
+          </div>
+
+          <div className="text-blackIsh">
+            <p className="ml-7">{incident.details}</p>
+            <p className="ml-10">
+              ► Veuillez vous rendre{" "}
+              <Link href="/perturbations" className="underline">
+                <span>ici </span>
+              </Link>
+              pour plus de détails
+            </p>
+          </div>
+        </>
+      ))}
+      <SearchDiv />
     </div>
-    
   );
 };
 
