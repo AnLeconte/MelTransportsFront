@@ -3,6 +3,7 @@ import { Ubuntu } from "next/font/google";
 import "./globals.css";
 import Header from "./header/Header";
 import Footer from "./footer/Footer";
+import Alert from "./alertIncident/alertIncident";
 
 const ubuntu = Ubuntu({
   subsets: ["latin"],
@@ -23,6 +24,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={ubuntu.className}>
         <Header />
+        <Alert />
           <main>{children}</main>
         <Footer />
       </body>

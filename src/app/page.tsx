@@ -41,9 +41,6 @@ export default function Home() {
           className="absolute inset-0 w-full h-full object-cover object-center opacity-50"
           style={{ objectPosition: "center 10%" }}
         />
-        <div className="relative z-10 flex justify-end items-center">
-          <Alert/>
-        </div>
         <div className="relative z-10 p-4 flex justify-end items-center">
           <SearchItineraireForm />
         </div>
