@@ -47,11 +47,11 @@ const Page = () => {
         const lignes = data
             .filter((ligne) => ligne.type[0] === modeTransport)
             .map((ligne) => (
-                <ul key={ligne._id} className="flex flex-row justify-around width w-full">
-                    <li className="mx-10 mt-4">{ligne.nom}</li>
-                    <li className="mx-10 mt-4">{new Date(ligne.premier_depart).toLocaleString()}</li><br />
-                    <li className="mx-10 mt-4">{new Date(ligne.dernier_depart).toLocaleString()}</li>
-                </ul>
+                <tr key={ligne._id} class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">{ligne.nom}</th>
+                    <td className="px-6 py-4">{new Date(ligne.premier_depart).toLocaleString()}</td>
+                    <td  className="px-6 py-4">{new Date(ligne.dernier_depart).toLocaleString()}</td>
+                </tr>
             ))
         return lignes
     }
@@ -70,14 +70,27 @@ const Page = () => {
             </div>
             <div className="flex justify-around">
                 {renderPhoto()}
-                <div className="flex flex-col">
-                    <ul className="flex flex-row justify-around width w-full">
-                        <li className="mx-10 mt-4">Nom</li>
-                        <li className="mx-10 mt-4">Premier départ</li><br />
-                        <li className="mx-10 mt-4">Dernier départ</li>
-                    </ul>
-                    {renderData()}
+                <div className="relative overflow-x-auto w-4/5">
+                    <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                        <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                        <tr>
+                            <th scope="col" className="px-6 py-3">
+                                Nom Ligne
+                            </th>
+                            <th scope="col" className="px-6 py-3">
+                                Premier départ
+                            </th>
+                            <th scope="col" className="px-6 py-3">
+                                Dernier départ
+                            </th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {renderData()}
+                        </tbody>
+                    </table>
                 </div>
+
             </div>
         </div>
     );
