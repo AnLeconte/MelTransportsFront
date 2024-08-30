@@ -6,7 +6,7 @@ import Link from "next/link";
 const IncidentsAlert = () => {
   const { dataIncident } = useIncidentData();
   return (
-    <div className="w-full h-[64vh] bg-whiteIsh px-7 mt-40">
+    <div className="w-full h-[56vh] bg-whiteIsh px-7 mt-40">
       <h3 className="font-medium text-2xl/[5rem] text-blueOcean">
         Perturbation en cours sur le réseau
       </h3>
