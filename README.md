@@ -1,3 +1,12 @@
+
+## Artisans du projet 
+    
+    - Anna RAACH
+    - Juliette ANCLA
+    - Antoine LECONTE
+    - Christophe ALFIER
+
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
