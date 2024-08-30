@@ -1,3 +1,5 @@
+'use client'
+
 import React from "react";
 import WarningBig from "@/asset/WarningBig";
 import { useIncidentData } from "../hook/useIncidentData";
