@@ -11,6 +11,12 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
+### With Docker
+
+```bash
+docker compose up -d
+```
+
 First, run the development server:
 
 ```bash
