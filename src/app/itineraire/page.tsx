@@ -13,7 +13,7 @@ const Page = () => {
 
     useEffect(() => {
         axios
-            .get("http://localhost:5000/station")
+            .get(`${process.env.NEXT_PUBLIC_API_BACK}station`)
             .then(data => setData(data.data.stationData))
             .then(() => setLoading(false))
             .catch(error => console.log(error));

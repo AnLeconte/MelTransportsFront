@@ -24,7 +24,7 @@ export default function Home() {
     }, [isFetching]);
     const fetchData = async () => {
         const responseApi = await axios.get(
-            "http://localhost:5000/station"
+            `${process.env.NEXT_PUBLIC_API_BACK}station`
         ).then(() => {setData(responseApi.data), setIsFetching(true)});
         console.log(responseApi);
 
