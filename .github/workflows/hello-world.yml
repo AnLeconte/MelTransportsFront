@@ -1,4 +1,4 @@
-name: Hello World on Push to Main
+name: Hello world and Test on Push to Main
 
 on:
   push:
@@ -6,7 +6,7 @@ on:
       - main
 
 jobs:
-  hello-world-job:
+  build-and-test:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -14,3 +14,6 @@ jobs:
 
       - name: Run Hello World script
         run: echo "Hello, World!"
+
+      - name: Run tests
+        run: npm test
