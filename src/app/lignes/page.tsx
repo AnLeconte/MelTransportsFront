@@ -13,7 +13,7 @@ const Page = () => {
 
     useEffect(() => {
         axios
-            .get("http://localhost:5000/ligne")
+            .get(`${process.env.NEXT_PUBLIC_API_BACK}ligne`)
             .then(data => setData(data.data.ligneData))
             .then(() => setLoading(false))
             .catch(error => console.log(error));

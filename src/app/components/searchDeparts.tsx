@@ -80,11 +80,11 @@ const SearchDeparts = () => {
 
     useEffect(() => {
         axios
-            .get('http://localhost:5000/station')
+            .get(`${process.env.NEXT_PUBLIC_API_BACK}station`)
             .then((data) => setStations(data.data.stationData))
             .catch((error) => console.log(error));
         axios
-            .get('http://localhost:5000/ligne')
+            .get(`${process.env.NEXT_PUBLIC_API_BACK}ligne`)
             .then((data) => setLignes(data.data.ligneData))
             .then(() => setLoading(false))
             .catch((error) => console.log(error));

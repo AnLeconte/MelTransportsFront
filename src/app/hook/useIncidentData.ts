@@ -18,7 +18,7 @@ export const useIncidentData = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/incident")
+      .get(`${process.env.NEXT_PUBLIC_API_BACK}incident`)
       .then((response) => {
         setDataIncident(response.data.incidentData);
         setLoading(false);
