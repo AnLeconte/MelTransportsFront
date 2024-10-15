@@ -1,12 +1,12 @@
 module.exports = {
   transform: {
-    "^.+\\.(js|jsx|ts|tsx)$": "babel-jest",
+    '^.+\\.(t|j)sx?$': '@swc/jest',
   },
   moduleNameMapper: {
     '^@/(.*)$': '<rootDir>/src/$1',
-    "\\.(css|less|scss|sass)$": "identity-obj-proxy",
   },
-  testEnvironment: "jsdom",
+  testEnvironment: 'jsdom', 
+  moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'],
 };
 
   
