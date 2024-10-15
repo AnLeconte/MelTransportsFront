@@ -1,4 +1,4 @@
-name: Hello world on push to main
+name: unit test on push to main
 
 on:
   push:
@@ -12,5 +12,8 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Run Hello World script
-        run: echo "Hello, World!"
+      - name: install dependencies
+        run: npm install --force
+
+      - name: Run tests
+        run: npm test
