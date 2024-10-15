@@ -1,26 +1,15 @@
-FROM node
-
+FROM node:18-alpine
 
 WORKDIR /app
 
+COPY package.json package-lock.json ./
 
-COPY package*.json ./
-
-
-RUN npm install --force
-
+RUN npm ci --force
 
 COPY . .
 
+COPY next.config.mjs ./next.config.mjs
 
 EXPOSE 3000
 
-
 CMD ["npm", "run", "dev"]
-
-# 1 - pour créer l'image
-# docker build -t transport-frontend .
-
-
-# 2 - pour conteneuriser a partir de l'image (et lui donner un nom)
-#  docker run -p 3000:3000 -d --name transport-front-container transport-frontend
