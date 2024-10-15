@@ -1,0 +1,28 @@
+name: Hello world and Unit tests on push to main
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  echo-hello-world:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Run Hello World script
+        run: echo "Hello, World!"
+
+  unit-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Install dependencies
+        run: npm install --force
+
+      - name: Run tests
+        run: npm test
